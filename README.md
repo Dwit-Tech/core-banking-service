@@ -1,1 +1,1 @@
-# -core-banking-service
+# core-banking-service
