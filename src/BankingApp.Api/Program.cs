@@ -17,12 +17,15 @@ namespace BankingApp.Api
             builder.Services.AddControllers();
             builder.Services.AddDbContext<StatementDbContext>(
                 options => options.UseSqlServer(builder.Configuration.GetConnectionString("StatementConnection")));
+            builder.Services.AddDbContext<CustomerDbContext>(
+                options => options.UseSqlServer(builder.Configuration.GetConnectionString("CustomerConnection")));
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IStatementService, StatementService>();
+            builder.Services.AddScoped<ICustomerService, CustomerService>();
 
             var app = builder.Build();
 
