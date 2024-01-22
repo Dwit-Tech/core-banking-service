@@ -1,3 +1,9 @@
+using BankingApp.Api.Controllers;
+using BankingApp.Core.AccountServices;
+using BankingApp.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
+
 namespace BankingApp.Api
 {
     public class Program
@@ -5,6 +11,13 @@ namespace BankingApp.Api
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+
+            builder.Services.AddDbContext<AccountDbContext>(options =>
+                  options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<AccountController>();
+            builder.Services.AddScoped< IAccountServises, AccountServices > ();
+
 
             // Add services to the container.
 
