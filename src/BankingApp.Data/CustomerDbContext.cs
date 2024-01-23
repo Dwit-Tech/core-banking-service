@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BankingApp.Data.Entities;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace BankingApp.Data
 {
