@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BankingApp.Core.Interfaces;
 
-namespace BankingApp.Core.AccountServices
+namespace BankingApp.Core.Services
 {
-    public class AccountServices : IAccountServises
+    public class AccountService : IAccountServise
     {
     }
 }
