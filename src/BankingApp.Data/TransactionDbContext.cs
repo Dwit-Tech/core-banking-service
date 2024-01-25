@@ -15,7 +15,6 @@ namespace BankingApp.Data
             : base(options)
         {
         }
-
-        public DbSet<Transaction> Statements { get; set; }
-    }
 }
+    }
+
