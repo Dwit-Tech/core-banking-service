@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankingApp.Core.Interfaces
 {
-    public interface IAccountServise
+    public interface IAccountService
     {
     }
 }

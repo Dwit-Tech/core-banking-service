@@ -7,7 +7,7 @@ using BankingApp.Core.Interfaces;
 
 namespace BankingApp.Core.Services
 {
-    public class AccountService : IAccountServise
+    public class AccountService : IAccountService
     {
     }
 }

@@ -31,7 +31,7 @@ namespace BankingApp.Api
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IStatementService, StatementService>();
-            builder.Services.AddScoped<IAccountServise, AccountService>();
+            builder.Services.AddScoped<IAccountService, AccountService>();
 
             var app = builder.Build();
 
