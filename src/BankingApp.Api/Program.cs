@@ -19,6 +19,8 @@ namespace BankingApp.Api
                 options => options.UseSqlServer(builder.Configuration.GetConnectionString("StatementConnection")));
             builder.Services.AddDbContext<TransactionDbContext>(
                options => options.UseSqlServer(builder.Configuration.GetConnectionString("TransactionConnection")));
+            builder.Services.AddDbContext<CustomerDbContext>(
+                options => options.UseSqlServer(builder.Configuration.GetConnectionString("CustomerConnection")));
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -26,6 +28,7 @@ namespace BankingApp.Api
 
             builder.Services.AddScoped<IStatementService, StatementService>();
             builder.Services.AddScoped<ITransactionService, TransactionService>();
+            builder.Services.AddScoped<ICustomerService, CustomerService>();
 
             var app = builder.Build();
 
