@@ -15,10 +15,13 @@ namespace BankingApp.Api
             // Add services to the container.
 
             builder.Services.AddControllers();
+
             builder.Services.AddDbContext<StatementDbContext>(
                 options => options.UseSqlServer(builder.Configuration.GetConnectionString("StatementConnection")));
+
             builder.Services.AddDbContext<TransactionDbContext>(
                options => options.UseSqlServer(builder.Configuration.GetConnectionString("TransactionConnection")));
+
             builder.Services.AddDbContext<CustomerDbContext>(
                 options => options.UseSqlServer(builder.Configuration.GetConnectionString("CustomerConnection")));
 
