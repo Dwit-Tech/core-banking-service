@@ -1,4 +1,5 @@
 ﻿using BankingApp.Core.Interfaces;
+using BankingApp.Core.Models;
 using BankingApp.Data.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,17 @@ namespace BankingApp.Api.Controllers
                 return NotFound();
             }
             return Ok(statements);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(StatementRequest statementRequest)
+        {
+            Statement statement = await _statementService.RequestStatement(statementRequest);
+            if (statement is null)
+            {
+                return Problem("Unable to create Statement");
+            }
+            return Created("", statement);
         }
     }
 }
