@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankingApp.Data.Entities
 {
-    public class Accounts : BaseEntity
+    public class Account : BaseEntity
     {
         public string AccountNumber { get; set; }
         public string AccountHolderName { get; set; }

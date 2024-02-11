@@ -9,7 +9,7 @@ namespace BankingApp.Data
             : base(options)
         {
         }
-        public DbSet<Statement> Statements { get; set; }
+        public DbSet<Account> Accounts { get; set; }
 
     }
 }
