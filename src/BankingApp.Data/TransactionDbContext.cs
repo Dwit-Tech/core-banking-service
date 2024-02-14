@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
+using Transaction = BankingApp.Data.Entities.Transaction;
 
 namespace BankingApp.Data
 {
@@ -15,6 +16,8 @@ namespace BankingApp.Data
             : base(options)
         {
         }
-}
+
+        public DbSet<Transaction> Transactions { get; set; }
     }
+}
 
