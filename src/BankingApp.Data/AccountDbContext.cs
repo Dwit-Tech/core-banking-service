@@ -10,6 +10,5 @@ namespace BankingApp.Data
         {
         }
         public DbSet<Account> Accounts { get; set; }
-
     }
 }
