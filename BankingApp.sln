@@ -9,17 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1926BF18-583
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{37D8FE79-A812-4853-AEA2-3B4952102504}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingApp.Core", "src\BankingApp.Core\BankingApp.Core.csproj", "{967EE005-65D7-4067-8E01-76123281C0FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingApp.Core", "src\BankingApp.Core\BankingApp.Core.csproj", "{967EE005-65D7-4067-8E01-76123281C0FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingApp.Data", "src\BankingApp.Data\BankingApp.Data.csproj", "{9B6AE613-728E-456A-B8C0-3569B95EC7AB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{94EB0701-BA80-4A09-B721-BA7DE9183428}"
-	ProjectSection(SolutionItems) = preProject
-		.dockerignore = .dockerignore
-		.gitignore = .gitignore
-		LICENSE = LICENSE
-		README.md = README.md
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingApp.Data", "src\BankingApp.Data\BankingApp.Data.csproj", "{9B6AE613-728E-456A-B8C0-3569B95EC7AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
