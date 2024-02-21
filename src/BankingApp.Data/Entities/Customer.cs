@@ -21,10 +21,8 @@ namespace BankingApp.Data.Entities
         public string Email { get; set; }
         public string IdType { get; set; }
         public string PhoneNumber { get; set; }
-        public int IdNumber { get; set; }
-        public int BVN { get; set; }
-        public int DOB { get; set; }
-
-
+        public string IdNumber { get; set; }
+        public string BVN { get; set; }
+        public string DateTime { get; set; }
     }
 }
