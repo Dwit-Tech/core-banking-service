@@ -23,6 +23,6 @@ namespace BankingApp.Data.Entities
         public string PhoneNumber { get; set; }
         public string IdNumber { get; set; }
         public string BVN { get; set; }
-        public string DateTime { get; set; }
+        public DateTime BirthDate { get; set; }
     }
 }
