@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankingApp.Core.Interfaces
+namespace BankingApp.Data.Enums
 {
-    public interface ICustomerService
+    public enum TransactionType
     {
-        Task<List<Customer>> GetCustomers();
+        Debit,
+        Credit
     }
 }
-
