@@ -9,5 +9,6 @@ namespace BankingApp.Data
             : base(options)
         {
         }
+        public DbSet<Account> Accounts { get; set; }
     }
 }
