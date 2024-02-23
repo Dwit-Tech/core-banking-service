@@ -24,6 +24,7 @@ namespace BankingApp.Api
 
             builder.Services.AddDbContext<CustomerDbContext>(
                 options => options.UseSqlServer(builder.Configuration.GetConnectionString("CustomerConnection")));
+
             builder.Services.AddDbContext<AccountDbContext>(
                 options => options.UseSqlServer(builder.Configuration.GetConnectionString("AccountConnection")));
 
