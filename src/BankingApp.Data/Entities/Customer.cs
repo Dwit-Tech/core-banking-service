@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using BankingApp.Data.Entities;
 
-
 namespace BankingApp.Data.Entities
 {
     public class Customer : BaseEntity
