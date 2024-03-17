@@ -1,9 +1,9 @@
 ﻿using BankingApp.Core.Interfaces;
 using BankingApp.Core.Models;
 using BankingApp.Data.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BankingApp.Api.Controllers
@@ -19,39 +19,18 @@ namespace BankingApp.Api.Controllers
             _accountService = accountService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            List<Account> accounts = await _accountService.GetAccounts();
-            if (accounts == null || accounts.Count == 0)
-            {
-                return NotFound();
-            }
-            return Ok(accounts);
-        }
-
         [HttpPost]
-        public async Task<IActionResult> Post(CreateAccountRequest createaccountRequest)
+        public async Task<IActionResult> Post(CreateAccountRequest accountRequest)
         {
-            if (createaccountRequest == null)
+            try
             {
-                return BadRequest("Account request is null");
+                var response = await _accountService.CreateAccount(accountRequest);
+                return Ok(response);
             }
-
-            var response = await _accountService.CreateAccountFromRequest(createaccountRequest);
-            return Ok(response);
-        }
-
-        [HttpPost("Create")]
-        public async Task<IActionResult> Create(CreateAccountRequest createAccountRequest)
-        {
-            if (createAccountRequest == null)
+            catch (Exception ex)
             {
-                return BadRequest("CreateAccountRequest is null");
+                return BadRequest(ex.Message);
             }
-
-            var response = await _accountService.CreateAccount(createAccountRequest);
-            return Ok(response);
         }
     }
 }

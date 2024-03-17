@@ -8,6 +8,6 @@ namespace BankingApp.Core.Interfaces
     public interface IAccountService
     {
         Task<List<Account>> GetAccounts();
-        Task<Account> CreateAccount(CreateAccountRequest createAccountRequest);
+        Task<AccountResponse> CreateAccount(CreateAccountRequest request);
     }
 }

@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BankingApp.Core.Services
@@ -30,20 +29,20 @@ namespace BankingApp.Core.Services
             return await _accountDbContext.Accounts.ToListAsync();
         }
 
-        public async Task<Account> CreateAccount(CreateAccountRequest createAccountRequest)
+        public async Task<AccountResponse> CreateAccount(CreateAccountRequest request)
         {
-            if (createAccountRequest == null)
+            if (request == null)
             {
-                throw new ArgumentNullException(nameof(createAccountRequest));
+                throw new ArgumentNullException(nameof(request));
             }
 
             string accountNumber = GenerateAccountNumber();
 
             var newAccount = new Account
             {
-                CustomerID = createAccountRequest.CustomerId,
-                AccountType = createAccountRequest.AccountType,
-                AccountName = createAccountRequest.AccountName,
+                CustomerID = request.CustomerId,
+                AccountType = request.AccountType,
+                AccountName = request.AccountName,
                 AccountNumber = accountNumber,
                 Balance = 0,
                 CreatedDate = DateTime.UtcNow
@@ -52,7 +51,15 @@ namespace BankingApp.Core.Services
             _accountDbContext.Accounts.Add(newAccount);
             await _accountDbContext.SaveChangesAsync();
 
-            return newAccount;
+            return new AccountResponse
+            {
+                CustomerId = newAccount.CustomerID,
+                AccountNumber = newAccount.AccountNumber,
+                AccountType = newAccount.AccountType,
+                AccountName = newAccount.AccountName,
+                Balance = newAccount.Balance,
+                CreatedDate = newAccount.CreatedDate
+            };
         }
     }
 }
