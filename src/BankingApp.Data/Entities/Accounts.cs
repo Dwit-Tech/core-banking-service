@@ -13,5 +13,6 @@ namespace BankingApp.Data.Entities
         public decimal Balance { get; set; }
         public string AccountType { get; set; }
         public int CustomerID { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

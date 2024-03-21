@@ -1,7 +1,10 @@
 ﻿using BankingApp.Core.Interfaces;
+using BankingApp.Core.Models;
 using BankingApp.Data.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BankingApp.Api.Controllers
 {
@@ -10,21 +13,24 @@ namespace BankingApp.Api.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IAccountService _accountService;
-         public AccountController(IAccountService accountService)
+
+        public AccountController(IAccountService accountService)
         {
-          _accountService = accountService;
+            _accountService = accountService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get() 
+        [HttpPost]
+        public async Task<IActionResult> Post(CreateAccountRequest accountRequest)
         {
-            List<Account> accounts = await _accountService.GetAccounts();
-            if (accounts == null || accounts.Count == 0)
+            try
             {
-                return NotFound();
+                var response = await _accountService.CreateAccount(accountRequest);
+                return Ok(response);
             }
-            return Ok(accounts);
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
-
